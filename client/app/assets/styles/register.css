@@ -1,0 +1,21 @@
+ul#menu {
+  padding: 15px;
+  list-style-type: none;
+}
+
+ul#menu li {
+  padding-bottom: 20px;
+}
+
+ul#menu li a {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px 4px 4px 4px;
+}
+
+ul#menu li a:hover {
+  cursor: pointer;
+  background-color: #FFC107;
+}

@@ -1,0 +1,4 @@
+<?
+
+ header("Location: /user/clientlist");
+?>

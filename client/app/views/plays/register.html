@@ -1,0 +1,83 @@
+<link rel="stylesheet" type="text/css" href="/assets/styles/register.css"/>
+
+<div id="page-wrapper">
+
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        신규 등록 <small>Register new plays</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li class="active">
+        <i class="fa fa-edit"></i> 공연관리 > 신규 등록
+        </li>
+      </ol>
+
+      <h3 class="ui header">신규 공연 등록 </h3>
+
+      <form class="ui form" action="/plays/register" method = "POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="title-label">
+            <span style = "color: red">*</span> Title&nbsp&nbsp : </label>
+          <input type="text" name="title" class="form-control" placeholder="Title" data-validetta="required">
+        </div>
+        <div class="form-group">
+          <label for="place-label">
+            <span style = "color: red">*</span> Place : </label>
+          <select class="options form-control" name="place_idx">
+            <option>---- 선택 ----</option>
+            <? foreach( $res['place'] as $data ){ ?>
+            <option value="<?=$data->idx?>"><?=$data->name?></option>
+            <? } ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="title-label">
+            <span style = "color: red">*</span> Fee&nbsp&nbsp : </label>
+          <input type="text" name="fee" class="form-control" placeholder="Fee" data-validetta="required">
+        </div>
+
+        <div class="form-group">
+          <label for="time-label">
+            <span style = "color: red">*</span> Time&nbsp : </label>
+          <input type="text" placeholder="YYYY-MM-DD hh:mm:ss" id="time"/>
+          <input type="button" value="추가" id="add"/>
+          <ul id="menu"></ul>
+          <div id="time_hidden_div">
+          </div>
+         <input type="text" class="form-control time_label" style="color:black; display:none;" value="* 시간은 YYYY-MM-DD hh:mm:ss 형식으로 입력합니다. (ex> 2015-12-08 10:30:00)"/>
+          <input type="text" class="form-control time_label" style="color:blue; display:none;" value="* 변경 시, 삭제하고자 하는 시간을 클릭하세요."/>
+ 
+        </div>
+
+        <div class="form-group">
+          <h5><label for="body-label">
+              <span style = "color: red">*</span> Contents : </label></h5>
+          <textarea name="contents" class="form-control" id="body-txtarea" cols="30" rows="10" placeholder="Body" maxlength="500" data-validetta="required"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="photo">
+            <span style = "color: red">*</span>
+            Picture : </label>
+          <input type="file" name="thumbnail" class="btn btn-file form-control" data-validetta="required">
+        </div>
+        <p align="right">
+        <input type="submit" id="submit_register" value="등록"  class="btn btn-primary">
+        <a href="/plays/myplays" id="cancel_register" class="btn btn-danger" style="margin-left:8px">취소</a></p>
+
+      </form>
+
+    </div>
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+<script src="/assets/scripts/plays/register.js"></script>

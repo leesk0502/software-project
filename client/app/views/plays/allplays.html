@@ -1,0 +1,47 @@
+<div id="page-wrapper">
+
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          전체 공연 목록 <small>All plays list</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li class="active">
+          <i class="fa fa-list"></i> 공연관리 > 전체 공연 목록
+          </li>
+        </ol>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Place</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          <? foreach($res['list'] as $idx => $data) { ?>
+          <tr>
+            <td><?=$idx+1?></td>
+            <td><?=$data->title?></td>
+            <td><?=$data->date?></td>
+            <td><?=$data->place_name?></td>
+            <td><?=playStatus($data->confirm)?></td>
+          </tr>
+          <? } ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+

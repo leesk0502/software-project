@@ -1,0 +1,20 @@
+.seat {
+  cursor: pointer;
+}
+
+.seat:hover{
+  background-color: #3F51B5;
+}
+
+.reserved {
+  background-color: #FFC107;
+}
+
+.cannot_seat {
+  background-color: #727272;
+}
+
+td {
+  text-align: center;
+  border: 1px solid #ddd;
+}

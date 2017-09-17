@@ -1,0 +1,69 @@
+<div id="page-wrapper">
+  <div class="container-fluid">
+
+    <!--Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          마이페이지 <small>My page
+          </h1>
+          <ol class="breadcrumb">
+            <li class="active">
+            <i class="fa fa-users"></i> 내 정보 관리</li>
+          </ol>
+
+          <div id="myprofile" class="ui column">
+
+            <div id="id" class="ui grid">
+              <div class="left floated right aligned three wide column"><span class="firstcolumn"><h4>ID : </h4></span></div>
+              <input type="text" value="<?=$res['info']->id?>" style="font-weight:bold; font-size:20px;" disabled/> 
+            </div>
+
+            <h6>&nbsp</h6>
+            <form method="post">
+            <div id="pw" class="ui grid">
+              <div class="left floated right aligned three wide column"><span class="firstcolumn"><h4>비밀번호 : </h4></span></div>
+              <input type="password" name="password" style="font-weight:bold; font-size:20px;"/> 
+
+                <span class="right floated four wide column"><input type="submit" id="btn1" class="btn btn-primary" style="margin-bottom:8px" value="비밀번호 변경"></span>  
+            </div>
+          </form>
+
+            <div id="id" class="ui grid">
+              <div class="left floated right aligned three wide column"><span class="firstcolumn"><h4>소속 : </h4></span></div>
+              <input type="text" name="host" value="<?=$res['info']->host?>" style="font-weight:bold; font-size:20px;" disabled/>
+
+            </div>
+
+            <h6>&nbsp</h6>
+            <form method="post">
+              <div id="id" class="ui grid">
+                <div class="left floated right aligned three wide column"><span class="firstcolumn"><h4>대표자 : </h4></span></div>
+                <input type="text" name="leader" value="<?=$res['info']->leader?>" style="font-weight:bold; font-size:20px;"/>
+                <span class="right floated four wide column"><input type="submit" id="btn2" class="btn btn-primary" style="margin-bottom:8px" value="변경"></span>  
+
+              </div>
+            </form>
+
+            <h6>&nbsp</h6>
+            <form method="post">
+              <div id="id" class="ui grid">
+                <div class="left floated right aligned three wide column"><span class="firstcolumn"><h4>대표 연락처 : </h4></span></div>
+                <input type="text" name="phone" value="<?=$res['info']->phone?>" style="font-weight:bold; font-size:20px;"/> 
+                <span class="right floated four wide column"><input type="submit" id="btn3" class="btn btn-primary" style="margin-bottom:8px" value="변경"></span>  
+
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+
+
+        <div id="h_sectiondivider" class="ui section divider"></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/scripts/users/info.js"></script>

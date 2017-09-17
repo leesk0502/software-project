@@ -1,0 +1,102 @@
+<link rel="stylesheet" type="text/css" href="/assets/styles/status.css"/>
+
+<div id="page-wrapper">
+
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          내 공연 목록 <small>My plays list</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li class="active">
+          <i class="fa fa-list"></i> 공연관리 > <a href="/plays/myplays">내 공연 목록</a> > 예매자 현황
+          </li>
+        </ol>
+
+        <pre>한여름밤의꿈 - 2015/11/27 5회차</pre>
+
+        <div class="bootstrap-table">
+          <div class="row-xs-2 col-lg-6 fixed-table-container">
+            <div class="fixed-table-header" style="height: 40px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(221, 221, 221); margin-right:0px;">
+
+            </div>
+            <div class="fixed-table-body">
+
+              <table id="table" class="table table-hover table-border" style="margin-top: -40px;">
+                <? for($i=0; $i<$res['place']->col+1; $i++){ ?>
+                <colgroup width="<?=100/($res['place']->col+1)?>%"/>
+                  <? } ?>
+                  <thead>
+                    <tr>
+                      <th>
+                        <center>&nbsp;</center>
+                      </th>
+                      <? for($i=0; $i<$res['place']->col; $i++){ ?>
+                      <th>
+                        <center><?=$i+1?></center>
+                      </th>
+                      <? } ?> 
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <? for($i=0; $i<$res['place']->row; $i++){ ?>
+                  <tr data-index="0">
+                    <th >
+                      <center><?=toAlpha($i)?></center>
+                    </th>
+                    <? for($j=0; $j<$res['place']->col; $j++){ ?>
+                    <td <?=isCannotSeat($res['cannot_seat'], $i, $j) ? 'class="cannot_seat"' : (isReservedSeat($res['reserved'], $i, $j) ? 'class="reserved"' : 'class="seat"')?>></td>
+                    <? } ?> 
+                  </tr>
+                  <? } ?>
+                  </tbody>
+                </table>
+              </div>
+              <div class="fixed-table-pagination"></div>
+            </div>
+            <div class="row-xs-2 col-lg-6 fixed-table-container">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Seat</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <? foreach($res['book_info'] as $idx => $data) { ?>
+                <tr>
+                  <td><?=$idx+1?></td>
+                  <td><?=$data->name?></td>
+                  <td><?=$data->phone_number?></td>
+                  <td><?=seatToAlpha($data->seat)?></td>
+                  <td>
+                    <select class="options" data-idx="<?=$data->idx?>">
+                      <option value="0" <? echo $data->deposit=='0' ? 'selected' : ''?>>입금 대기중</option>
+                      <option value="1" <? echo $data->deposit=='1' ? 'selected' : ''?>>입금 승인</option>
+                      <option value="2" <? echo $data->deposit=='2' ? 'selected' : ''?>>입금 연체 취소</option>
+                    </select>
+                  </td>
+                 </tr>
+                <? } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+  </div>
+  <!-- /#page-wrapper -->
+  <script src="/assets/scripts/plays/status.js"></script>
